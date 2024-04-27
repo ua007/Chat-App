@@ -1,0 +1,21 @@
+.navbar-nav {
+    background-color: lightgrey;
+    width: 100%;
+    /* height: 50px; */
+    border-style: solid;
+    border-radius: 0.5em;
+}
+
+.col{
+    border-left: 0.1px;
+    border-right: 0.1px;
+    border-bottom: 0;
+    border-top: 0;
+    border-style: solid;
+    border-color: black;
+    text-decoration: solid;
+}
+
+#navbarSupportedContent {
+    align-items: center;
+}

@@ -1,0 +1,10 @@
+Welcome - Display Welcome message Functional Component
+Login - Display Login message Class Component
+Register - Display Register message Class Component
+LoginSuccessful - Display LoginSuccessful message Functional Component
+RegisterSuccessful - Display RegisterSuccessful message Functional Component
+ChatList - Display ChatList message Class Component
+UserList - Display UserList message Class Component
+EditUser - Display EditUser message Class Component
+DocumentList - Display DocumentList message Class Component
+Logout - Display Logout message Functional Component

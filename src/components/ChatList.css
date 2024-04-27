@@ -1,0 +1,10 @@
+.row-lg-12 {
+    border-style: solid;
+    border-radius: 0.5em;
+    margin: 1px;
+}
+
+.chat-display{
+    height: 400px;
+    overflow: scroll;
+}
