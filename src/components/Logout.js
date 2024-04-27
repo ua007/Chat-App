@@ -1,8 +1,10 @@
 import { Navigate } from 'react-router-dom';
 
 function Logout() {
-    localStorage.removeItem("logedinUserId");
+    // removing loggedInUserDetails from localstorage
+    localStorage.removeItem("loggedInUserDetails");
     return <>
+        {/* routing to main page */}
         <Navigate to="/" />
     </>
 }

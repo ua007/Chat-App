@@ -3,24 +3,25 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 function UserList() {
-    const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users")));
-    const userId = JSON.parse(localStorage.getItem("logedinUserId")).id;
-    const [id, setId] = useState("");
+    const [users, setUsers] = useState(JSON.parse(localStorage.getItem("users"))); // fetching users from localstorage
+    const userId = JSON.parse(localStorage.getItem("loggedInUserDetails")).id; // logged in user id from localstorage
+    const [idToBeDeleted, setIdToBeDeleted] = useState("");
 
     const deleteUser = () => {
         const users = JSON.parse(localStorage.getItem("users"));
-
+        
         for (let i in users) {
-            if (users[i].id === id) {
-                users.splice(i, 1);
+            if (users[i].id === idToBeDeleted) {
+                users.splice(i, 1); // removing userfrom the users list
             }
         }
+        // replacing the spliced list to localstorage & state
         localStorage.setItem("users", JSON.stringify(users));
         setUsers(users);
     }
 
     const setDeleteId = (id) => {
-        setId(id);
+        setIdToBeDeleted(id); // setting userid to be deleted
     }
 
     return (<>
@@ -40,6 +41,7 @@ function UserList() {
                             <tr key={index}>
                                 <td>{item.fullname}</td>
                                 <td>{item.email}</td>
+                                {/* routing to edit user component & user's self deletion is disabled */}
                                 <td><Link to={`/editUser/${item.id}`} >Edit</Link> | {item.id !== Number(userId) && 
                                 (<Link data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => setDeleteId(item.id)}>Delete</Link>)}</td>
                             </tr>
@@ -48,6 +50,7 @@ function UserList() {
                 }
             </tbody>
         </table>
+        {/* a pop up window to confirm deletion */}
         <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">

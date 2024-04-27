@@ -1,4 +1,5 @@
 import React from 'react';
+// imported all components for routing
 import Welcome from './components/Welcome.js';
 import ChatList from './components/ChatList.js';
 import EditUser from './components/EditUser.js';
@@ -14,22 +15,10 @@ import LoginSuccessful from './components/LoginSuccessful.js';
 
 
 class Main extends React.Component {
-    constructor(props) {
-        super(props);
-        console.log("main.js", this.props)
-        this.state = {
-            uploads: []
-        }
-    }
-
-    componentDidMount() {
-        this.setState({
-            uploads: getUploads()
-        })
-    }
 
     render() {
         return <>
+            {/* Routing logic, here components are assigned with their unique routes */}
             <BrowserRouter>
                 <Routes>
                     <Route index element={<Welcome propsData={this.props} />} />
@@ -37,11 +26,12 @@ class Main extends React.Component {
                     <Route path="/register" element={<Register />} />
                     <Route path="/registerSuccess" element={<RegisterSuccessful />} />
                     <Route path="/loginSuccess" element={<LoginSuccessful />} />
+                    {/* Routing for Navbar, here Nav component is default render for all components inside it */}
                     <Route path="/" element={<Nav />}>
                         <Route path="/group_chat" element={<ChatList />} />
                         <Route path="/manage_users" element={<UserList />} />
-                        <Route path="/manage_documents" element={<DocumentList uploads={this.state.uploads} />} />
-                        
+                        <Route path="/manage_documents" element={<DocumentList />} />
+                        {/* id is param variable in this route */}
                         <Route path="/editUser/:id" element={<EditUser />} />
                     </Route>
                     <Route path="/logout" element={<Logout />} />
@@ -51,24 +41,5 @@ class Main extends React.Component {
     }
 }
 
-function getUploads() {
-    return [
-        {
-            id: 1,
-            label: 'sales report',
-            filename: 'sales.xls'
-        },
-        {
-            id: 2,
-            label: 'quaterly summary',
-            filename: 'summary.xls'
-        },
-        {
-            id: 3,
-            label: 'projection',
-            filename: 'projection.pdf'
-        },
-    ]
-}
-
+// exported Main class
 export default Main;

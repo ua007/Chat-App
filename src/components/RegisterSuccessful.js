@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 function RegisterSuccessful() {
     return <>
-        {/* <Nav /> */}
         <div className='container text-center'>
             <br /><br />
             <h3>Registration Successful</h3>
             <br /><br />
             <p>Thank you for your registration.</p>
             <br />
-            <a href=""><Link className="nav-link" to="/">Click to return to home page</Link></a>
+            {/* nevigate back to mai page */}
+            <a href=""><Link className="nav-link" to="/">Click here to return to home page</Link></a>
         </div>
     </>
 }

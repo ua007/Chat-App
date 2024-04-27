@@ -1,11 +1,11 @@
 import Nav from './Nav.js';
-// import ChatList from './ChatList.js';
 
 function LoginSuccessful() {
     return (<>
+        {/* rendered to Nav component */}
         <Nav />
-        {/* <ChatList /> */}
-        <h2>Welcome {JSON.parse(localStorage.getItem("logedinUserId")).email}</h2>
+        {/* fetching logged in user email */}
+        <h2>Welcome {JSON.parse(localStorage.getItem("loggedInUserDetails")).email}</h2>
     </>)
 }
 
